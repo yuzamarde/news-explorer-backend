@@ -1,51 +1,48 @@
-# News Explorer Backend
+# Backend Penjelajah Berita
 
-The News Explorer Backend is the server-side component of the News Explorer application. It provides the API endpoints and database management for the application. Below are the details and instructions for setting up and deploying the backend.
+Backend News Explorer adalah komponen sisi server dari aplikasi News Explorer. Ini menyediakan titik akhir API dan manajemen basis data untuk aplikasi. Di bawah ini adalah detail dan petunjuk untuk menyiapkan dan menerapkan backend.
 
-## Getting Started
+## Mulai
 
-To get started with the News Explorer Backend, follow these steps:
+Untuk memulai Backend Penjelajah Berita, ikuti langkah-langkah berikut:
 
-1. Clone this repository to your local machine:
-   `git clone <repository-url>`
+1. Kloning repositori ini ke mesin lokal Anda:
+ `git clone <url-repositori>`
 
-2. Navigate to the project directory:
-   `cd news-explorer-backend`
+2. Navigasikan ke direktori proyek:
+ `cd berita-penjelajah-backend`
 
-3. Install the required dependencies:
-   `npm install`
+3. Instal dependensi yang diperlukan:
+ `instal npm`
 
-4. Configure the environment variables:
+4. Konfigurasikan variabel lingkungan:
 
-Create a `.env` file in the project root and set the necessary environment variables, including database connection details and any other required configurations.
+Buat file `.env` di root proyek dan atur variabel lingkungan yang diperlukan, termasuk detail koneksi database dan konfigurasi lain yang diperlukan.
 
-5. Start the server:
+5. Mulai server:
 
-You can start the server using one of the following commands:
+Anda dapat memulai server menggunakan salah satu perintah berikut:
 
-- `npm start`: Start the server in production mode.
-- `npm run dev`: Start the server using Nodemon for automatic reloading during development.
+- `npm start`: Memulai server dalam mode produksi.
+- `npm run dev`: Memulai server menggunakan Nodemon untuk memuat ulang otomatis selama pengembangan.
 
-6. The server will start and be accessible at `http://localhost:3000`. You can now interact with the backend API.
+6. Server akan mulai dan dapat diakses di `http://localhost:3000`. Anda sekarang dapat berinteraksi dengan API backend.
 
-## API Endpoints
+## Titik Akhir API
 
-The News Explorer Backend provides the following API endpoints:
+Backend Penjelajah Berita menyediakan titik akhir API berikut:
 
-- `GET /articles`: Retrieve a list of articles.
-- `GET /articles/:articleId`: Retrieve a specific article by ID.
-- `POST /articles`: Create a new article.
-- `DELETE /articles/:articleId`: Delete a specific article by ID.
-- `POST /signup`: Register a new user.
-- `POST /signin`: Log in an existing user.
+- `GET /articles`: Mengambil daftar artikel.
+- `GET /articles/:articleId`: Mengambil artikel tertentu berdasarkan ID.
+- `POST /artikel`: Membuat artikel baru.
+- `DELETE /articles/:articleId`: Menghapus artikel tertentu berdasarkan ID.
+- `POST /pendaftaran`: Daftarkan pengguna baru.
+- `POST /signin`: Masuk ke pengguna yang sudah ada.
 
-### Server Access
+### Akses Server
 
-The application is deployed to a server with the following links:
+Aplikasi disebarkan ke server dengan tautan berikut:
 
-- Front-end: 
-- Back-end API: 
+- Front end:
+- API Backend:
 
-You can check the frontend GitHub repository for News Explorer at the following link: [News Explorer Frontend]
-
-Happy coding !!!
