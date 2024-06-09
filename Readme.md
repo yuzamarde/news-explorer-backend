@@ -43,8 +43,8 @@ The News Explorer Backend provides the following API endpoints:
 
 The application is deployed to a server with the following links:
 
-- Front-end: [https://news-explorer.twilightparadox.com](https://news-explorer.twilightparadox.com)
-- Back-end API: [https://api.news-explorer.twilightparadox.com](https://api.news-explorer.twilightparadox.com)
+- Front-end: 
+- Back-end API: 
 
 You can check the frontend GitHub repository for News Explorer at the following link: [News Explorer Frontend]
 
