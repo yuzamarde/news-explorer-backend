@@ -12,19 +12,11 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const app = express();
 
 // Menghubungkan ke MongoDB
-async function connectDB() {
-  try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('MongoDB Connected');
-  } catch (err) {
-    console.error('MongoDB Connection Error:', err);
-    process.exit(1);
-  }
+
+async function main() {
+  await mongoose.connect(process.env.MONGODB_URI);
 }
-connectDB();
+main().catch((err) => console.log(err));
 
 // Middleware untuk memproses body JSON pada request
 app.use(express.json());
@@ -48,7 +40,6 @@ app.use((req, res, next) => {
 // Middleware untuk menangani request logger
 app.use(requestLogger);
 
-// Rute crash test untuk pengujian error handling
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Server akan crash saat ini');
@@ -56,9 +47,9 @@ app.get('/crash-test', () => {
 });
 
 // Menggunakan router
-app.use('/auths', authsRouter);
-app.use('/users', usersRouter);
-app.use('/articles', articlesRouter);
+app.use(authsRouter);
+app.use(usersRouter);
+app.use(articlesRouter);
 
 // Middleware untuk menangani kesalahan pada request
 app.use(errorLogger);
@@ -71,6 +62,8 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Sumber daya yang diminta tidak ada' });
 });
 
+
+
 // Middleware untuk menangani error umum
 app.use(errorHandler);
 
@@ -80,8 +73,7 @@ if (process.env.NODE_ENV !== 'production') {
   console.log('Aplikasi berjalan dalam mode produksi.');
 }
 
-// Menjalankan server
-const PORT = process.env.PORT || 5000;
+const { PORT } = process.env;
 app.listen(PORT, () => {
   console.log(`Server berjalan di port ${PORT}`);
 });
