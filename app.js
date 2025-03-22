@@ -21,21 +21,16 @@ main().catch((err) => console.log(err));
 // Middleware untuk memproses body JSON pada request
 app.use(express.json());
 
-// Konfigurasi CORS
-const corsOptions = {
-  origin: process.env.ALLOWED_ORIGIN ? process.env.ALLOWED_ORIGIN.split(',') : ['http://localhost:3000', 'http://localhost:3001'],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Izinkan cookie dan authentication credentials
-};
-
-app.use(cors(corsOptions));
-
-// Middleware Logging untuk debugging
 app.use((req, res, next) => {
-  console.log(`Request dari: ${req.headers.origin}, Method: ${req.method}`);
+  res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || 'http://localhost:3000' || 'http://localhost:3001');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+
+// Middleware untuk memproses cors
+app.use(cors());
+app.options('*', cors());
 
 // Middleware untuk menangani request logger
 app.use(requestLogger);
